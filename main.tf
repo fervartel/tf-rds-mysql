@@ -49,9 +49,9 @@ module "dev-db-sn-grp" {
 }
 # Creation of RDS MySQL DB
 module "dev-rds-mysql" {
-    source              = "../tf-modules/rds-mysql"
-    rds-mysql_env       = "dev"
+    source        = "../tf-modules/rds-mysql"
+    rds-env       = "dev"
 
-    rds-mysql_db-sn-grp = "${module.dev-db-sn-grp.db_sn_grp}"
-    rds-mysql_sg        = ["${module.dev-sg-mysql.sg_mysql}"]
+    rds-db-sn-grp = "${module.dev-db-sn-grp.db_sn_grp}"
+    rds-sg        = ["${module.dev-sg-mysql.sg_mysql}"]
 }
